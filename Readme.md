@@ -2,9 +2,9 @@ Link for username password php file
 
 http://www.alphabranding.com/codered1/userLogin.php?username=test&password=test
 
-To add a user to database
+To add a user to database (updated with username)
 
-http://www.alphabranding.com/codered1/insertUser.php?username=testuser&password=testuser&role=admin
+http://www.alphabranding.com/codered1/insertUser.php?username=test1&password=test1&role=admin&fullname=FirstName Lastname
 
 To see all users in database
 
