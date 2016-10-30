@@ -28,3 +28,12 @@ ALTER TABLE `codered1`.`tasks`
 CHANGE COLUMN `idtasks` `idtasks` INT(11) NOT NULL AUTO_INCREMENT ;
 
 INSERT INTO `codered1`.`tasks` (`user_assigned`, `name`, `description`, `state`, `points`) VALUES ('child', 'cleaning', 'clean the room', 'pending', '10');
+
+ALTER TABLE `codered1`.`users` 
+ADD COLUMN `fullname` VARCHAR(100) NULL AFTER `password`;
+
+ALTER TABLE `codered1`.`users` 
+CHANGE COLUMN `fullname` `fullname` VARCHAR(100) NOT NULL ;
+
+ALTER TABLE `codered1`.`users` 
+ADD COLUMN `parent` VARCHAR(16) NULL AFTER `profile_pic`;

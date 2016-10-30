@@ -25,7 +25,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-
 //Fetching from your database table.
 $stmt = $conn->prepare("INSERT INTO tasks (user_assigned, name, description, state, points, proofpic) VALUES(?, ?, ?, ?, ?, ?)");
 $stmt->bind_param('ssssdd', $enteredUsername, $enteredTaskName, $enteredDescription, $enteredState, $enteredPoints, $enteredProofPic);

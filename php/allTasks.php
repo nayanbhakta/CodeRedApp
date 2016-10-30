@@ -22,11 +22,13 @@ if ($conn->connect_error) {
 $query = "SELECT * FROM $usertable";
 $result = mysqli_query($conn, $query);
 
-$flag = 0;
+$results = array();
 if ($result) {
     while($row = mysqli_fetch_assoc($result)) {
-        print_r($row);
+        $results[] = $row;
     }
 }
+
+echo json_encode($results);
 
 ?>

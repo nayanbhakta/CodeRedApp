@@ -1,11 +1,6 @@
 <?php
 
-$enteredPassword = $_GET["password"];
-$enteredUsername = $_GET["username"];
-$enteredFullname = $_GET["fullname"];
-$enteredRole = $_GET["role"];
-$enteredPic = $_GET["profilepic"];
-$enteredParent = $_GET["parent"];
+$enteredUser = $_GET["username"];
 
 //Variables for connecting to your database.
 //These variable values come from your hosting account.
@@ -15,6 +10,7 @@ $dbname = "codered1";
 
 //These variable values need to be changed by you before deploying
 $password = "Legends1!";
+$usertable = "users";
 $yourfield = "username";
 
 //Connecting to your database
@@ -25,18 +21,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-
 //Fetching from your database table.
-$stmt = $conn->prepare("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('ssssds', $enteredUsername, $enteredPassword, $enteredFullname, $enteredRole, $enteredPic, $enteredParent);
+$query = "SELECT * FROM $usertable WHERE parent = '$enteredUser'";
+$result = mysqli_query($conn, $query);
 
 
-if ($stmt->execute()) {
-    echo "New record inserted successfully";
-} else {
-    echo "Error: <br>" . mysqli_error($conn);
+$results = array();
+if ($result) {
+    while($row = mysqli_fetch_assoc($result)) {
+        $results[] = $row;
+    }
 }
 
-mysqli_close($conn);
-
+echo json_encode($results)
 ?>
