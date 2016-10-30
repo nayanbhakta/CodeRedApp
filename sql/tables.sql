@@ -7,3 +7,13 @@ CREATE TABLE `codered1`.`users` (
 
 
 INSERT INTO `codered1`.`users` (`username`, `password`, `role`) VALUES ('test', 'test', 'admin');
+
+
+CREATE TABLE `codered1`.`tasks` (
+  `idtasks` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(200) NULL,
+  `state` VARCHAR(15) NOT NULL,
+  `points` INT NULL DEFAULT 0,
+  `proofpic` BLOB NOT NULL,
+  PRIMARY KEY (`idtasks`));
