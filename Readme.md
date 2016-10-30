@@ -24,3 +24,8 @@ http://www.alphabranding.com/codered1/allTasksForUser.php?username=child
 insert task into DB
 
 http://www.alphabranding.com/codered1/insertTask.php?username=child&taskname=write&description=writing&state=pending&points=10
+
+
+update task
+
+http://www.alphabranding.com/codered1/updateTask.php?idtasks=1&state=complete
