@@ -35,3 +35,5 @@ ADD COLUMN `fullname` VARCHAR(100) NULL AFTER `password`;
 ALTER TABLE `codered1`.`users` 
 CHANGE COLUMN `fullname` `fullname` VARCHAR(100) NOT NULL ;
 
+ALTER TABLE `codered1`.`users` 
+ADD COLUMN `parent` VARCHAR(16) NULL AFTER `profile_pic`;
