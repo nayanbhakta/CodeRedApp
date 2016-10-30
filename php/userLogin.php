@@ -25,9 +25,10 @@ $result = mysql_query($query);
 
 $flag = 0;
 if ($result) {
-    while($row = mysql_fetch_array($result)) {
+    while($row = mysql_fetch_assoc($result)) {
         if( $row["username"] == $enteredUsername && $row["password"] == $enteredPassword) {
 	        	$flag = 1;
+	        	$data = $row;
     	}
     }
 }
@@ -35,5 +36,5 @@ if ($result) {
 if($flag == 0)
 	echo 'Failure';
 else
-	echo 'Success';
+	echo json_encode($data);
 ?>
