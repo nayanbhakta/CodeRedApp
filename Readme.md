@@ -29,3 +29,13 @@ http://www.alphabranding.com/codered1/insertTask.php?username=child&taskname=wri
 update task
 
 http://www.alphabranding.com/codered1/updateTask.php?idtasks=1&state=complete
+
+
+insert user with parent
+
+http://www.alphabranding.com/codered1/insertUser.php?username=jdoe&password=jdoe&role=admin&fullname=John%20Doe&parent=test
+
+
+get all child for parent
+
+http://www.alphabranding.com/codered1/allChildForParent.php?username=test
