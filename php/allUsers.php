@@ -1,8 +1,5 @@
 <?php
 
-$enteredPassword = $_GET["password"];
-$enteredUsername = $_GET["username"];
-
 //Variables for connecting to your database.
 //These variable values come from your hosting account.
 $hostname = "codered1.db.11273437.hostedresource.com";
