@@ -1,10 +1,8 @@
 <?php
 
-$enteredPassword = $_GET["password"];
-$enteredUsername = $_GET["username"];
-$enteredFullname = $_GET["fullname"];
-$enteredRole = $_GET["role"];
-$enteredPic = $_GET["profilepic"];
+$enteredTask = $_GET["idtasks"];
+$enteredState = $_GET["state"];
+$enteredProofPic = $_GET["proofpic"];
 
 //Variables for connecting to your database.
 //These variable values come from your hosting account.
@@ -24,14 +22,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-
 //Fetching from your database table.
-$stmt = $conn->prepare("INSERT INTO users VALUES(?, ?, ?, ?, ?)");
-$stmt->bind_param('ssssd', $enteredUsername, $enteredPassword, $enteredFullname, $enteredRole, $enteredPic);
+$stmt = $conn->prepare("UPDATE tasks SET state = ?, proofpic = ? WHERE idtasks = ?");
+$stmt->bind_param('sdd', $enteredState, $enteredProofPic, $enteredTask);
 
 
 if ($stmt->execute()) {
-    echo "New record inserted successfully";
+    echo "Update record successfully";
 } else {
     echo "Error: <br>" . mysqli_error($conn);
 }
