@@ -24,4 +24,7 @@ ADD COLUMN `user_assigned` VARCHAR(16) NOT NULL AFTER `idtasks`;
 ALTER TABLE `codered1`.`tasks` 
 CHANGE COLUMN `proofpic` `proofpic` BLOB NULL ;
 
+ALTER TABLE `codered1`.`tasks` 
+CHANGE COLUMN `idtasks` `idtasks` INT(11) NOT NULL AUTO_INCREMENT ;
+
 INSERT INTO `codered1`.`tasks` (`user_assigned`, `name`, `description`, `state`, `points`) VALUES ('child', 'cleaning', 'clean the room', 'pending', '10');
