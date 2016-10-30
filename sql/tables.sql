@@ -4,3 +4,6 @@ CREATE TABLE `codered1`.`users` (
   `role` VARCHAR(45) NOT NULL,
   `profile_pic` BLOB NULL,
   PRIMARY KEY (`username`));
+
+
+INSERT INTO `codered1`.`users` (`username`, `password`, `role`) VALUES ('test', 'test', 'admin');
