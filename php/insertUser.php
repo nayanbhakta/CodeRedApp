@@ -5,6 +5,7 @@ $enteredUsername = $_GET["username"];
 $enteredFullname = $_GET["fullname"];
 $enteredRole = $_GET["role"];
 $enteredPic = $_GET["profilepic"];
+$enteredParent = $_GET["parent"];
 
 //Variables for connecting to your database.
 //These variable values come from your hosting account.
@@ -26,8 +27,8 @@ if ($conn->connect_error) {
 
 
 //Fetching from your database table.
-$stmt = $conn->prepare("INSERT INTO users VALUES(?, ?, ?, ?, ?)");
-$stmt->bind_param('ssssd', $enteredUsername, $enteredPassword, $enteredFullname, $enteredRole, $enteredPic);
+$stmt = $conn->prepare("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?)");
+$stmt->bind_param('ssssds', $enteredUsername, $enteredPassword, $enteredFullname, $enteredRole, $enteredPic, $enteredParent);
 
 
 if ($stmt->execute()) {
