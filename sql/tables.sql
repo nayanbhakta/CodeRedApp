@@ -17,3 +17,11 @@ CREATE TABLE `codered1`.`tasks` (
   `points` INT NULL DEFAULT 0,
   `proofpic` BLOB NOT NULL,
   PRIMARY KEY (`idtasks`));
+
+ALTER TABLE `codered1`.`tasks` 
+ADD COLUMN `user_assigned` VARCHAR(16) NOT NULL AFTER `idtasks`;
+
+ALTER TABLE `codered1`.`tasks` 
+CHANGE COLUMN `proofpic` `proofpic` BLOB NULL ;
+
+INSERT INTO `codered1`.`tasks` (`user_assigned`, `name`, `description`, `state`, `points`) VALUES ('child', 'cleaning', 'clean the room', 'pending', '10');
