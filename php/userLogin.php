@@ -15,17 +15,15 @@ $usertable = "users";
 $yourfield = "username";
 
 //Connecting to your database
-mysql_connect($hostname, $username, $password) OR DIE ("Unable to
-connect to database! Please try again later.");
-mysql_select_db($dbname);
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
 
 //Fetching from your database table.
 $query = "SELECT * FROM $usertable";
-$result = mysql_query($query);
+$result = mysqli_query($conn, $query);
 
 $flag = 0;
 if ($result) {
-    while($row = mysql_fetch_assoc($result)) {
+    while($row = mysqli_fetch_assoc($result)) {
         if( $row["username"] == $enteredUsername && $row["password"] == $enteredPassword) {
 	        	$flag = 1;
 	        	$data = $row;
