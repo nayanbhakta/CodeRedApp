@@ -26,9 +26,7 @@ $result = mysql_query($query);
 $flag = 0;
 if ($result) {
     while($row = mysql_fetch_array($result)) {
-        if( $row["username"] == $enteredUsername) {
-	        $password = $row["password"];
-	        if($password == $enteredPassword)
+        if( $row["username"] == $enteredUsername && $row["password"] == $enteredPassword) {
 	        	$flag = 1;
     	}
     }
