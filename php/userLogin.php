@@ -7,8 +7,8 @@ $dbname = "codered1";
 
 //These variable values need to be changed by you before deploying
 $password = "Legends1!";
-$usertable = "test";
-$yourfield = "testcol";
+$usertable = "users";
+$yourfield = "username";
 
 //Connecting to your database
 mysql_connect($hostname, $username, $password) OR DIE ("Unable to
