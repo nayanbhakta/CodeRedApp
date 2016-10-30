@@ -2,6 +2,7 @@
 
 $enteredPassword = $_GET["password"];
 $enteredUsername = $_GET["username"];
+$enteredFullname = $_GET["fullname"];
 $enteredRole = $_GET["role"];
 $enteredPic = $_GET["profilepic"];
 
@@ -25,8 +26,8 @@ if ($conn->connect_error) {
 
 
 //Fetching from your database table.
-$stmt = $conn->prepare("INSERT INTO users VALUES(?, ?, ?, ?)");
-$stmt->bind_param('sssd', $enteredUsername, $enteredPassword, $enteredRole, $enteredPic);
+$stmt = $conn->prepare("INSERT INTO users VALUES(?, ?, ?, ?, ?)");
+$stmt->bind_param('ssssd', $enteredUsername, $enteredPassword, $enteredFullname, $enteredRole, $enteredPic);
 
 
 if ($stmt->execute()) {
