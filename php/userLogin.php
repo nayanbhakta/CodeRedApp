@@ -1,4 +1,8 @@
 <?php
+
+$enteredPassword = $_GET["password"];
+$enteredUsername = $_GET["username"];
+
 //Variables for connecting to your database.
 //These variable values come from your hosting account.
 $hostname = "codered1.db.11273437.hostedresource.com";
@@ -19,11 +23,19 @@ mysql_select_db($dbname);
 $query = "SELECT * FROM $usertable";
 $result = mysql_query($query);
 
+$flag = 0;
 if ($result) {
     while($row = mysql_fetch_array($result)) {
-        $name = $row["$yourfield"];
-        echo "Name $name<br>";
+        if( $row["username"] == $enteredUsername) {
+	        $password = $row["password"];
+	        if($password == $enteredPassword)
+	        	$flag = 1;
+    	}
     }
 }
-// echo json_encode($result);
+
+if($flag == 0)
+	echo 'Failure';
+else
+	echo 'Success';
 ?>
